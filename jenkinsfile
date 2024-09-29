@@ -6,6 +6,8 @@ node {
     def mavenHome = 'C:\\apach\\apache-maven-3.9.7\\bin'
 
     stage('Clone repository') {
+        bat 'git config --global http.postBuffer 524288000'
+        bat 'git config --global http.maxRequestBuffer 100M'
         git branch: 'main', url: 'https://github.com/GithubMarbouh/crud-app-spring-boot.git'
     }
     stage('Build application') {
